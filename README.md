@@ -11,13 +11,17 @@ In this project I have created a REST API to access data from the database and c
 Images of the Rest API  created to perform CRUD operations.
 
 FETCH DATA (GET) :
+
 <img width="646" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/590d52fa-096d-49dd-920c-a47c972c3c1f">
 
 CREATE DATA (POST) :
+
 <img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/e2b8fa8b-a0d5-40a3-9fa6-975e38f4e33e">
 
 UPDATA DATA (PUT) :
+
 <img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/4e087b9d-cd17-42ea-baed-a768e54f7f4e">
 
 DELETE DATA (DELETE) :
+
 <img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/cb691955-5650-48ba-9dea-9739995b75db">
