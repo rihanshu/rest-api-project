@@ -4,9 +4,10 @@ In this project I have created a REST API to access data from the database and c
 1) Download the project code and place it in htdocs folder.
 2) Download Xampp Server(local server), VS Code (Code Editor), Postman for API testing.
 3) Create a database in phpMyAdmin and give it any name and make sure to change the name in db.php file for database connection.
-4) Make customers table and give 3 attributes to it "name", "email" , "phone";
-5) Now you can insert some data to the table from insert tab or call resource create.php in Postman app by giving the data in the body either as raw or form-data.
-6) Use other Methods to create, read , update and delete.
+4) Make customers table and give 4 attributes to it "id", "name", "email" , "phone";
+5) Make "id" as a Primary key and Auto Increment it.
+6) Now you can insert some data to the table from insert tab or call resource create.php in Postman app by giving the data in the body either as raw or form-data.
+7) Use other Methods to create, read , update and delete.
 
 Images of the Rest API  created to perform CRUD operations.
 
