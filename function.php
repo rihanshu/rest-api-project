@@ -9,7 +9,7 @@ function error422($message){
     ];
     header("HTTP/1.0 422 Unprocessable Entity");
     echo json_encode($data);
-    exit();  
+    // exit();  
 }
 
 function getCustomerList(){
@@ -106,6 +106,17 @@ function storeCustomer($customerInput){
         return error422('Enter your phone no.!!');
     }
     else{
+
+        $query = "SELECT * FROM customers WHERE  email='$email' or phone='$phone'";
+        $result = mysqli_query($conn,$query);
+        if(mysqli_num_rows($result)>0){
+            $data=[
+                'status' => 409,
+                'message' => 'Customer Already Created',        
+            ];
+            header("HTTP/1.0 409 User Duplicated");
+            return(json_encode($data));
+        }
         $query = "INSERT INTO customers(name,email,phone) VALUES('$name','$email','$phone')";
         $result = mysqli_query($conn,$query);
     }
@@ -139,9 +150,7 @@ function updateCustomer($updatedData,$id){
         return error422('Enter the Customer Id!!');
     }
 
-    $id=mysqli_real_escape_string($conn, $id['id']);
-
-
+    $custid=mysqli_real_escape_string($conn, $id['id']);
     $name=mysqli_real_escape_string($conn, $updatedData['name']);
     $email=mysqli_real_escape_string($conn, $updatedData['email']);
     $phone=mysqli_real_escape_string($conn, $updatedData['phone']);
@@ -159,10 +168,42 @@ function updateCustomer($updatedData,$id){
     }
     else
     {
-        $query = "UPDATE customers SET name='$name',email='$email', phone='$phone'
-        WHERE id='$id' LIMIT 1";
+        $query ="SELECT * from customers WHERE id='$custid'";
+        $query_run = mysqli_query($conn, $query);
+
+        if(mysqli_num_rows($query_run)>0){
+
+        
+
+        $query = "SELECT * FROM customers WHERE  email='$email' or phone='$phone'";
         $result = mysqli_query($conn,$query);
-    }
+        if(mysqli_num_rows($result)>0){
+            $data=[
+                'status' => 409,
+                'message' => 'Customer Already Exists, Use Different Email-Id and Phone no.',        
+            ];
+            header("HTTP/1.0 409 User Duplicated");
+            return(json_encode($data));
+        }
+
+
+
+            $query = "UPDATE customers SET name='$name', email='$email', phone='$phone'
+            WHERE id='$custid' LIMIT 1";
+            $result = mysqli_query($conn,$query);
+        }
+        else{
+
+            
+
+            $data=[
+                'status' => 404,
+                'message' => 'Customer Does not Exist',        
+            ];
+            header("HTTP/1.0 404 Not Found");
+            return(json_encode($data));
+        }
+}
     if($result){
         $data=[
             'status' => 200,
@@ -184,34 +225,49 @@ function updateCustomer($updatedData,$id){
 function deleteCustomer($custParam){
 
     global $conn;
-    if(!isset($custParam['id'])){
+    $id=$custParam['id'];
+    if(!isset($id)){
         
         return error422('Customer Id not found in URL!!');
     }
-    elseif($custParam['id']==null){
+    elseif($id==null){
         return error422('Enter the Customer Id!!');
     }
-    
-        $id=mysqli_real_escape_string($conn, $custParam['id']);
-        $query = "DELETE FROM customers WHERE id='$id' LIMIT 1";
-        $result = mysqli_query($conn,$query);
+    $query ="SELECT * from customers WHERE id='$id'";
+    $query_run = mysqli_query($conn, $query);
 
-        if($result){
-            $data=[
-                'status' => 200,
-                'message' => 'Customer Deleted Successfully',        
-            ];
-            header("HTTP/1.0 200 OK");
-            return(json_encode($data));
+        if(mysqli_num_rows($query_run)>0){
+
+            $id=mysqli_real_escape_string($conn, $custParam['id']);
+            $query = "DELETE FROM customers WHERE id='$id' LIMIT 1";
+            $result = mysqli_query($conn,$query);
+    
+            if($result){
+                $data=[
+                    'status' => 200,
+                    'message' => 'Customer Deleted Successfully',        
+                ];
+                header("HTTP/1.0 200 OK");
+                return(json_encode($data));
+            }
+            else{
+                $data=[
+                    'status' => 404,
+                    'message' => 'Customer Not Found',        
+                ];
+                header("HTTP/1.0 404 Not Found");
+                return(json_encode($data));
+            }
         }
         else{
             $data=[
                 'status' => 404,
-                'message' => 'Customer Not Found',        
+                'message' => 'Customer Does Not Exist',        
             ];
             header("HTTP/1.0 404 Not Found");
             return(json_encode($data));
         }
+    
 
 
 }
