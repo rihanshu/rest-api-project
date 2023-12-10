@@ -23,6 +23,7 @@ UPDATA DATA (PUT) :
 
 <img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/4e087b9d-cd17-42ea-baed-a768e54f7f4e">
 
+
 <img width="647" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/e3197bc8-704e-466e-844b-419884bf1f01">
 
 
