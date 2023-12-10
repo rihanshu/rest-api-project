@@ -13,20 +13,25 @@ Images of the Rest API created to perform CRUD operations.
 
 FETCH DATA (GET) :
 
-<img width="646" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/590d52fa-096d-49dd-920c-a47c972c3c1f">
+<img width="620" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/a3849126-65a1-4953-8419-2cc06e638038">
+
 
 CREATE DATA (POST) :
 
-<img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/e2b8fa8b-a0d5-40a3-9fa6-975e38f4e33e">
+<img width="610" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/7f259d5d-40a4-44eb-8cb2-1990bce1b1df">
+
 
 UPDATA DATA (PUT) :
 
-<img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/4e087b9d-cd17-42ea-baed-a768e54f7f4e">
+<img width="603" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/e4639b76-df5b-4db6-a331-02823d631aaf">
 
 
-<img width="647" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/e3197bc8-704e-466e-844b-419884bf1f01">
+
+<img width="615" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/650975be-7913-4c20-976b-52f0ff63822b">
+
 
 
 DELETE DATA (DELETE) :
 
-<img width="643" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/cb691955-5650-48ba-9dea-9739995b75db">
+<img width="621" alt="image" src="https://github.com/rihanshu/rest-api-project/assets/37378354/024d317b-e311-4f93-a13c-3289a18d185a">
+
